@@ -1,18 +1,17 @@
-
-# Usar una imagen de Java 21 con Maven incluido
+# Usar una imagen de Java 21 con Maven incluido para compilar
 FROM maven:3.9.6-eclipse-temurin-21
 
-# Crear una carpeta de trabajo dentro del servidor
+# Crear una carpeta de trabajo dentro del servidor de Render
 WORKDIR /app
 
-# Copiar todos tus archivos
+# Copiar los archivos de tu proyecto (pom.xml, src, etc.) al servidor
 COPY . .
 
-# Compilar el proyecto (esto evita usar el archivo mvnw que nos daba error)
+# Compilar el proyecto y generar el archivo .jar
 RUN mvn clean package -DskipTests
 
-# Exponer el puerto
+# Indicar el puerto que usa Spring Boot por defecto
 EXPOSE 8080
 
-# Arrancar la pagina
+# Comando para arrancar tu aplicación usando el nombre de tu archivo .jar
 CMD ["java", "-jar", "target/links-0.0.1-SNAPSHOT.jar"]
