@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta <p> - Catálogo HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .seccion {
+            margin-bottom: 25px;
+        }
+        h3 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        /* Estilo para el bloque de código */
+        pre {
+            background-color: #2b2b2b;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace; /* Aquí sí usamos monospace para que parezca código real */
+        }
+        /* Estilo para el ejemplo renderizado */
+        .ejemplo-real {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        /* Botones de navegación */
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .btn {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-inicio {
+            background-color: #6c757d;
+        }
+        .btn-inicio:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Etiqueta <code>&lt;tr&gt;</code></h1>
+
+    <div class="seccion">
+        <h3>Descripción y significado</h3>
+        <p>La etiqueta <strong>&lt;tr&gt;</strong> (del inglés <em>table row</em>) define una <strong>fila</strong> horizontal dentro de una tabla. Es como el renglón de tu cuaderno.</p>
+
+        <ul>
+            <li><strong>Sintaxis:</strong> Apertura <code>&lt;tr&gt;</code> y cierre <code>&lt;/tr&gt;</code>. Siempre debe ir dentro de una <code>&lt;table&gt;</code> (o de un tbody/thead).</li>
+            <li><strong>Contenido:</strong> Adentro de un <code>tr</code> no puedes poner texto suelto, solo puedes poner etiquetas de celda (<code>&lt;td&gt;</code> o <code>&lt;th&gt;</code>).</li>
+        </ul>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo de código</h3>
+        <pre><code>&lt;table border="1"&gt;
+    &lt;!-- Esta es una fila completa con dos celdas --&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Dato 1&lt;/td&gt;
+        &lt;td&gt;Dato 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo renderizado</h3>
+        <div class="ejemplo-real">
+            <table border="1" style="width: 100%; border-collapse: collapse;">
+                <tr><td>Dato 1</td><td>Dato 2</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="navegacion">
+        <a href="/etiqueta-table" class="btn">&laquo; Anterior</a>
+        <a href="/" class="btn btn-inicio">Menú Principal</a>
+        <a href="/etiqueta-td" class="btn">Siguiente &raquo;</a>
+    </div>
+</div>
+
+</body>
+</html>

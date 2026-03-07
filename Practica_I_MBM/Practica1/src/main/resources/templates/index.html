@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Etiquetas HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .categoria {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .categoria h2 {
+            margin-top: 0;
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .enlaces {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .enlaces a {
+            text-decoration: none;
+            background-color: #e9ecef;
+            color: #007bff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .enlaces a:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Catálogo Interactivo de Etiquetas HTML</h1>
+    <p style="text-align: center;">Selecciona una etiqueta para explorar su funcionamiento y sintaxis.</p>
+
+    <div class="categoria">
+        <h2>Estructura</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-html">html</a>
+            <a href="/etiqueta-head">head</a>
+            <a href="/etiqueta-body">body</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Texto</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-p">p</a>
+            <a href="/etiqueta-titulos">h1–h6</a>
+            <a href="/etiqueta-span">span</a>
+            <a href="/etiqueta-strong">strong</a>
+            <a href="/etiqueta-em">em</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Enlaces e Imágenes</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-a">a</a>
+            <a href="/etiqueta-img">img</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Listas</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-ul">ul</a>
+            <a href="/etiqueta-ol">ol</a>
+            <a href="/etiqueta-li">li</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Tablas</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-table">table</a>
+            <a href="/etiqueta-tr">tr</a>
+            <a href="/etiqueta-td">td</a>
+            <a href="/etiqueta-th">th</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Formularios</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-form">form</a>
+            <a href="/etiqueta-input">input</a>
+            <a href="/etiqueta-label">label</a>
+            <a href="/etiqueta-button">button</a>
+            <a href="/etiqueta-select">select</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Multimedia</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-audio">audio</a>
+            <a href="/etiqueta-video">video</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Semánticas</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-header">header</a>
+            <a href="/etiqueta-footer">footer</a>
+            <a href="/etiqueta-section">section</a>
+            <a href="/etiqueta-article">article</a>
+            <a href="/etiqueta-nav">nav</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

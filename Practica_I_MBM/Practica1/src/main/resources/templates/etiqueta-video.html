@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta <p> - Catálogo HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .seccion {
+            margin-bottom: 25px;
+        }
+        h3 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        /* Estilo para el bloque de código */
+        pre {
+            background-color: #2b2b2b;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace; /* Aquí sí usamos monospace para que parezca código real */
+        }
+        /* Estilo para el ejemplo renderizado */
+        .ejemplo-real {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        /* Botones de navegación */
+        .navegacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .btn {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-inicio {
+            background-color: #6c757d;
+        }
+        .btn-inicio:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Etiqueta <code>&lt;video&gt;</code></h1>
+
+    <div class="seccion">
+        <h3>Descripción y significado</h3>
+        <p>La etiqueta <strong>&lt;video&gt;</strong> incrusta un reproductor de video directamente en tu página web.</p>
+        <ul>
+            <li><strong>Sintaxis:</strong> Apertura <code>&lt;video&gt;</code> y cierre <code>&lt;/video&gt;</code>.</li>
+            <li><strong>Atributos comunes:</strong> <code>controls</code>, <code>width</code>, y <code>poster</code> (una imagen miniatura que se muestra antes de darle play).</li>
+        </ul>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo de código</h3>
+        <pre><code>&lt;video width="100%" controls&gt;
+    &lt;source src="/mapache.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo renderizado</h3>
+        <div class="ejemplo-real" style="text-align: center;">
+
+            <video controls style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                <source th:src="@{/mapache.mp4}" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+
+        </div>
+    </div>
+
+    <div class="navegacion">
+        <a href="/etiqueta-audio" class="btn">&laquo; Anterior</a>
+        <a href="/" class="btn btn-inicio">Menú Principal</a>
+        <a href="/etiqueta-header" class="btn">Siguiente &raquo;</a>
+    </div>
+</div>
+
+</body>
+</html>
