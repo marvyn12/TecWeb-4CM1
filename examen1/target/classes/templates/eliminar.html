@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Departamento</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        h1 { color: #6E1C32; }
+        a { color: #6E1C32; text-decoration: none; font-weight: bold; margin-left: 15px; }
+        a:hover { text-decoration: underline; }
+        ul { background: #f9f9f9; padding: 20px 40px; max-width: 400px; border: 1px solid #ddd; list-style-type: none; }
+        li { margin-bottom: 10px; }
+        button { background-color: #6E1C32; color: white; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #4A1321; }
+        form { margin-top: 15px; }
+    </style>
+</head>
+<body>
+<h1>¿Eliminar este departamento?</h1>
+
+<ul>
+    <li><strong>ID:</strong> <span th:text="${departamento.id}"></span></li>
+    <li><strong>Nombre:</strong> <span th:text="${departamento.nombre}"></span></li>
+    <li><strong>Ubicación:</strong> <span th:text="${departamento.ubicacion}"></span></li>
+    <li><strong>Teléfono:</strong> <span th:text="${departamento.telefono}"></span></li>
+</ul>
+
+<form th:action="@{/departamentos/eliminar/{id}(id=${departamento.id})}" method="post">
+    <button type="submit">Eliminar</button>
+    <a th:href="@{/departamentos}">Cancelar</a>
+</form>
+</body>
+</html>
