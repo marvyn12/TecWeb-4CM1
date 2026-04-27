@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head('Lista de Productos')}"></head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav th:replace="~{layout/layout :: navbar}"></nav>
+    <aside th:replace="~{layout/layout :: sidebar}"></aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Inventario de Abarrotes</h1>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <a th:href="@{/productos/nuevo}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Nuevo Producto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="producto : ${productos}">
+                            <td th:text="${producto.codigoBarras}"></td>
+                            <td th:text="${producto.nombre}"></td>
+                            <td th:text="${producto.descripcion}"></td>
+                            <td th:text="'$' + ${producto.precio}"></td>
+                            <td>
+                                <span th:text="${producto.stock}"
+                                      th:class="${producto.stock < 10} ? 'badge badge-danger' : 'badge badge-success'">
+                                </span>
+                            </td>
+                            <td>
+                                <a th:href="@{/productos/editar/{id}(id=${producto.id})}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a th:href="@{/productos/eliminar/{id}(id=${producto.id})}"
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('¿Seguro que quieres borrar este producto?')">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div th:replace="~{layout/layout :: scripts}"></div>
+</body>
+</html>

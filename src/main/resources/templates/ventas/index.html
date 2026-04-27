@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head('Historial de Ventas')}"></head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav th:replace="~{layout/layout :: navbar}"></nav>
+    <aside th:replace="~{layout/layout :: sidebar}"></aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <h1>Historial de Ventas</h1>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Folio de Venta</th>
+                            <th>Fecha y Hora</th>
+                            <th>Atendió (Cajero)</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="venta : ${ventas}">
+                            <td th:text="${venta.id}"></td>
+                            <td th:text="${#temporals.format(venta.fecha, 'dd/MM/yyyy HH:mm')}"></td>
+                            <td th:text="${venta.usuario.nombre}"></td>
+                            <td class="font-weight-bold" th:text="'$' + ${venta.total}"></td>
+                            <td>
+                                <a th:href="@{/facturacion/{id}(id=${venta.id})}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-file-invoice"></i> Ver Factura
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div th:replace="~{layout/layout :: scripts}"></div>
+</body>
+</html>
