@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Etiquetas HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f5;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-top: 6px solid #6b1524;
+            padding: 35px;
+        }
+        h1 {
+            color: #6b1524;
+            border-bottom: 2px solid #f4f4f5;
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: left;
+        }
+        h2, h3 {
+            color: #27272a;
+            margin-bottom: 10px;
+        }
+        .categoria, .seccion {
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #fafafa;
+            border-left: 4px solid #6b1524;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #3f3f46;
+            font-size: 14px;
+        }
+        .ejemplo-real {
+            border: 1px solid #d4d4d8;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .navegacion, .enlaces {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn, .enlaces a {
+            text-decoration: none;
+            background-color: #f4f4f5;
+            color: #3f3f46;
+            padding: 8px 16px;
+            border: 1px solid #d4d4d8;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn:hover, .enlaces a:hover {
+            background-color: #6b1524;
+            color: #ffffff;
+            border-color: #6b1524;
+        }
+        .btn-inicio {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Catálogo Interactivo de Etiquetas HTML</h1>
+    <p style="text-align: center;">Selecciona una etiqueta para explorar su funcionamiento y sintaxis.</p>
+
+    <div class="categoria">
+        <h2>Estructura</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-html">html</a>
+            <a href="/etiqueta-head">head</a>
+            <a href="/etiqueta-body">body</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Texto</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-p">p</a>
+            <a href="/etiqueta-titulos">h1–h6</a>
+            <a href="/etiqueta-span">span</a>
+            <a href="/etiqueta-strong">strong</a>
+            <a href="/etiqueta-em">em</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Enlaces e Imágenes</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-a">a</a>
+            <a href="/etiqueta-img">img</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Listas</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-ul">ul</a>
+            <a href="/etiqueta-ol">ol</a>
+            <a href="/etiqueta-li">li</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Tablas</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-table">table</a>
+            <a href="/etiqueta-tr">tr</a>
+            <a href="/etiqueta-td">td</a>
+            <a href="/etiqueta-th">th</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Formularios</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-form">form</a>
+            <a href="/etiqueta-input">input</a>
+            <a href="/etiqueta-label">label</a>
+            <a href="/etiqueta-button">button</a>
+            <a href="/etiqueta-select">select</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Multimedia</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-audio">audio</a>
+            <a href="/etiqueta-video">video</a>
+        </div>
+    </div>
+
+    <div class="categoria">
+        <h2>Semánticas</h2>
+        <div class="enlaces">
+            <a href="/etiqueta-header">header</a>
+            <a href="/etiqueta-footer">footer</a>
+            <a href="/etiqueta-section">section</a>
+            <a href="/etiqueta-article">article</a>
+            <a href="/etiqueta-nav">nav</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

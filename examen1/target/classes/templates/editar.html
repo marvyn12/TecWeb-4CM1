@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Departamento</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        h1 { color: #6E1C32; }
+        a { color: #6E1C32; text-decoration: none; font-weight: bold; margin-left: 15px; }
+        a:hover { text-decoration: underline; }
+        form { margin-top: 20px; background: #f9f9f9; padding: 20px; max-width: 400px; border: 1px solid #ddd; }
+        label { font-weight: bold; display: inline-block; width: 100px; margin-bottom: 5px; }
+        input { padding: 8px; margin-bottom: 15px; width: calc(100% - 20px); border: 1px solid #ccc; }
+        button { background-color: #6E1C32; color: white; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #4A1321; }
+    </style>
+</head>
+<body>
+<h1>Editar Departamento</h1>
+<form th:action="@{/departamentos/editar/{id}(id=${departamento.id})}" th:object="${departamento}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>ID:</label> <span th:text="*{id}" style="font-weight:bold; display:block; margin-bottom: 15px;"></span>
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required />
+
+    <label>Ubicación:</label>
+    <input type="text" th:field="*{ubicacion}" required />
+
+    <label>Teléfono:</label>
+    <input type="text" th:field="*{telefono}" required />
+
+    <button type="submit">Actualizar</button>
+    <a th:href="@{/departamentos}">Cancelar</a>
+</form>
+</body>
+</html>

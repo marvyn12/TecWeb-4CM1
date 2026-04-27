@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        h2 { color: #dc3545; border-bottom: 2px solid #dc3545; padding-bottom: 10px; }
+        a { text-decoration: none; color: #6c757d; font-weight: bold; }
+        form { background: white; padding: 20px; border-radius: 5px; max-width: 400px; margin-top: 20px; }
+        input { padding: 8px; margin-bottom: 15px; width: 100%; box-sizing: border-box; background-color: #e9ecef; }
+        button { padding: 10px 15px; background-color: #dc3545; color: white; border: none; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+<h2>Eliminar Producto</h2>
+<a th:href="@{/productos}">Cancelar y Regresar</a>
+<form th:action="@{/productos/borrar/{id}(id=${producto.id})}" th:object="${producto}" method="post">
+    <label>Nombre:</label> <input type="text" th:field="*{nombre}" readonly>
+    <label>Precio:</label> <input type="number" th:field="*{precio}" readonly>
+    <label>Categoría:</label> <input type="text" th:field="*{categoria}" readonly>
+    <button type="submit">Confirmar Eliminación</button>
+</form>
+</body>
+</html>

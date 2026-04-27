@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta <p> - Catálogo HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f5;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-top: 6px solid #6b1524;
+            padding: 35px;
+        }
+        h1 {
+            color: #6b1524;
+            border-bottom: 2px solid #f4f4f5;
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: left;
+        }
+        h2, h3 {
+            color: #27272a;
+            margin-bottom: 10px;
+        }
+        .categoria, .seccion {
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #fafafa;
+            border-left: 4px solid #6b1524;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #3f3f46;
+            font-size: 14px;
+        }
+        .ejemplo-real {
+            border: 1px solid #d4d4d8;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .navegacion, .enlaces {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn, .enlaces a {
+            text-decoration: none;
+            background-color: #f4f4f5;
+            color: #3f3f46;
+            padding: 8px 16px;
+            border: 1px solid #d4d4d8;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn:hover, .enlaces a:hover {
+            background-color: #6b1524;
+            color: #ffffff;
+            border-color: #6b1524;
+        }
+        .btn-inicio {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Etiqueta <code>&lt;ol&gt;</code></h1>
+
+    <div class="seccion">
+        <h3>Descripción y significado</h3>
+        <p>La etiqueta <strong>&lt;ol&gt;</strong> (del inglés <em>ordered list</em>) crea una lista donde el orden numérico o alfabético sí es importante. Por defecto, los navegadores enumeran los elementos (1, 2, 3...).</p>
+
+        <ul>
+            <li><strong>Sintaxis:</strong> Apertura <code>&lt;ol&gt;</code> y cierre <code>&lt;/ol&gt;</code>. Al igual que la anterior, adentro solo lleva etiquetas <code>&lt;li&gt;</code>.</li>
+            <li><strong>Atributos comunes:</strong> <code>type</code> (para cambiar entre números, letras o números romanos, ej. type="A") y <code>start</code> (para decirle desde qué número empezar a contar).</li>
+        </ul>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo de código</h3>
+        <pre><code>&lt;h3&gt;Pasos para cocinar:&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li&gt;Mezclar los ingredientes.&lt;/li&gt;
+    &lt;li&gt;Calentar el sartén.&lt;/li&gt;
+    &lt;li&gt;Servir con miel.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo renderizado</h3>
+        <div class="ejemplo-real">
+            <h3>Pasos para cocinar:</h3>
+            <ol>
+                <li>Mezclar los ingredientes.</li>
+                <li>Calentar el sartén.</li>
+                <li>Servir con miel.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="navegacion">
+        <a href="/etiqueta-ul" class="btn">&laquo; Anterior</a>
+        <a href="/" class="btn btn-inicio">Menú Principal</a>
+        <a href="/etiqueta-li" class="btn">Siguiente &raquo;</a>
+    </div>
+</div>
+
+</body>
+</html>

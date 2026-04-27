@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        h1 { color: #6E1C32; }
+        a { color: #6E1C32; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; max-width: 800px; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #6E1C32; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+<h1>Departamentos</h1>
+<a th:href="@{/departamentos/nuevo}">Agregar Nuevo Departamento</a>
+<br><br>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="depto : ${departamentos}">
+        <td th:text="${depto.id}"></td>
+        <td th:text="${depto.nombre}"></td>
+        <td th:text="${depto.ubicacion}"></td>
+        <td th:text="${depto.telefono}"></td>
+        <td>
+            <a th:href="@{/departamentos/editar/{id}(id=${depto.id})}">Editar</a> |
+            <a th:href="@{/departamentos/eliminar/{id}(id=${depto.id})}">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

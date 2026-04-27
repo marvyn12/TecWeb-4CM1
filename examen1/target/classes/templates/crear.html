@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Departamento</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        h1 { color: #6E1C32; }
+        a { color: #6E1C32; text-decoration: none; font-weight: bold; margin-left: 15px; }
+        a:hover { text-decoration: underline; }
+        form { margin-top: 20px; background: #f9f9f9; padding: 20px; max-width: 400px; border: 1px solid #ddd; }
+        label { font-weight: bold; display: inline-block; width: 100px; margin-bottom: 5px; }
+        input { padding: 8px; margin-bottom: 15px; width: calc(100% - 20px); border: 1px solid #ccc; }
+        button { background-color: #6E1C32; color: white; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #4A1321; }
+    </style>
+</head>
+<body>
+<h1>Nuevo Departamento</h1>
+<form th:action="@{/departamentos/nuevo}" th:object="${departamento}" method="post">
+    <label>ID:</label>
+    <input type="number" th:field="*{id}" required />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required />
+
+    <label>Ubicación:</label>
+    <input type="text" th:field="*{ubicacion}" required />
+
+    <label>Teléfono:</label>
+    <input type="text" th:field="*{telefono}" required />
+
+    <button type="submit">Guardar</button>
+    <a th:href="@{/departamentos}">Cancelar</a>
+</form>
+</body>
+</html>
