@@ -56,7 +56,11 @@ public class ProductoController {
     @GetMapping("/eliminar/{id}")
     public String delete(@PathVariable Long id, HttpSession session) {
         if (!esAdmin(session)) return "redirect:/";
-        productoRepository.deleteById(id);
+        try {
+            productoRepository.deleteById(id);
+        } catch (Exception e) {
+            System.out.println("No se puede borrar el producto porque ya tiene ventas registradas.");
+        }
         return "redirect:/productos";
     }
 }
