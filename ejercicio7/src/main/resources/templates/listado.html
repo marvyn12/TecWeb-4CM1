@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Materias - IPN</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1, h2 { color: #6B192A; border-bottom: 2px solid #6B192A; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #6B192A; color: white; }
+        .btn { display: inline-block; padding: 10px 15px; text-decoration: none; border-radius: 5px; color: white; border: none; cursor: pointer; font-weight: bold; margin-right: 5px; }
+        .btn-primary { background-color: #6B192A; }
+        .btn-primary:hover { background-color: #4a101d; }
+        .btn-danger { background-color: #dc3545; }
+        .btn-danger:hover { background-color: #a71d2a; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Gestión de Materias</h1>
+    <a th:href="@{/materias/nueva}" class="btn btn-primary">Crear Nueva Materia</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre de la Materia</th>
+            <th>Créditos</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="materia : ${materias}">
+            <td th:text="${materia.id}"></td>
+            <td th:text="${materia.nombre}"></td>
+            <td th:text="${materia.creditos}"></td>
+            <td>
+                <a th:href="@{/materias/editar/{id}(id=${materia.id})}" class="btn btn-primary">Editar</a>
+                <a th:href="@{/materias/eliminar/{id}(id=${materia.id})}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>>

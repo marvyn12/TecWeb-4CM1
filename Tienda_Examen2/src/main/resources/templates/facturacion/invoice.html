@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head('Factura de Venta')}"></head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav th:replace="~{layout/layout :: navbar}"></nav>
+    <aside th:replace="~{layout/layout :: sidebar}"></aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <h1>Factura / Ticket #<span th:text="${venta.id}"></span></h1>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="invoice p-3 mb-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4>
+                                        <i class="fas fa-store"></i> Tienda de Abarrotes
+                                        <small class="float-right">Fecha de emisión: <span th:text="${#temporals.format(venta.fecha, 'dd/MM/yyyy HH:mm')}"></span></small>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="row invoice-info mt-4 mb-4">
+                                <div class="col-sm-4 invoice-col">
+                                    Atendido por:
+                                    <address>
+                                        <strong th:text="${venta.usuario.nombre}"></strong><br>
+                                        Correo: <span th:text="${venta.usuario.email}"></span>
+                                    </address>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Cantidad</th>
+                                            <th>Producto</th>
+                                            <th>Precio Unitario</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="detalle : ${venta.detalles}">
+                                            <td th:text="${detalle.cantidad}"></td>
+                                            <td th:text="${detalle.producto.nombre}"></td>
+                                            <td th:text="'$' + ${detalle.producto.precio}"></td>
+                                            <td th:text="'$' + ${detalle.subtotal}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-6">
+                                </div>
+                                <div class="col-6">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th style="width:50%">Total a Pagar:</th>
+                                                <td><h3 class="text-success font-weight-bold" th:text="'$' + ${venta.total}"></h3></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-print mt-4">
+                                <div class="col-12">
+                                    <button class="btn btn-default" onclick="window.print();"><i class="fas fa-print"></i> Imprimir Ticket</button>
+                                    <a th:href="@{/ventas}" class="btn btn-primary float-right" style="margin-right: 5px;">
+                                        <i class="fas fa-arrow-left"></i> Volver a Ventas
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div th:replace="~{layout/layout :: scripts}"></div>
+</body>
+</html>

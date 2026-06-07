@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/layout :: plantilla(~{::#contenido_citas})}">
+<head>
+    <title>Citas Médicas</title>
+</head>
+<body>
+
+<div id="contenido_citas">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-info"><i class="fas fa-calendar-check"></i> Citas Programadas</h1>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <a th:href="@{/citas/nuevo}" class="btn btn-info">
+                        <i class="fas fa-plus"></i> Agendar Cita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">Agenda General</h3>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped table-hover">
+                        <thead class="bg-info text-white">
+                        <tr>
+                            <th>ID</th>
+                            <th>Paciente</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Especialidad</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="cita : ${citas}">
+                            <td th:text="${cita.idCita}">1</td>
+                            <td th:text="${cita.paciente.nombreCompleto}">Jorge Guzman</td>
+                            <td th:text="${cita.fecha}">2026-04-20</td>
+                            <td th:text="${cita.hora}">10:00</td>
+                            <td th:text="${cita.especialidad}">Medicina General</td>
+                            <td class="text-center">
+                                <a th:href="@{/citas/editar/{id}(id=${cita.idCita})}" class="btn btn-sm btn-info">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a th:href="@{/citas/eliminar/{id}(id=${cita.idCita})}" class="btn btn-sm btn-danger" onclick="return confirm('¿Cancelar esta cita?');">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(citas)}">
+                            <td colspan="6" class="text-center text-muted py-4">
+                                No hay citas programadas.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

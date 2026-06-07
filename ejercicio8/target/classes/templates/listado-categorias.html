@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        h2 { color: #6B192A; border-bottom: 2px solid #6B192A; padding-bottom: 10px; }
+        a { text-decoration: none; color: #6B192A; font-weight: bold; }
+        table { border-collapse: collapse; width: 100%; max-width: 600px; margin-top: 20px; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #6B192A; color: white; }
+    </style>
+</head>
+<body>
+<h2>Categorías</h2>
+<a th:href="@{/}">Regresar</a> | <a th:href="@{/categorias/agregar}">Agregar Categoría</a>
+<table>
+    <tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr>
+    <tr th:each="cat : ${categorias}">
+        <td th:text="${cat.id}"></td>
+        <td th:text="${cat.nombre}"></td>
+        <td>
+            <a th:href="@{/categorias/actualizar/{id}(id=${cat.id})}">Actualizar</a> |
+            <a th:href="@{/categorias/eliminar/{id}(id=${cat.id})}" style="color: #dc3545;">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

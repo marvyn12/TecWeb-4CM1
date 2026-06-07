@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/layout :: plantilla(~{::#contenido_edit_cita})}">
+<head>
+    <title>Editar Cita</title>
+</head>
+<body>
+
+<div id="contenido_edit_cita">
+    <div class="content-header">
+        <div class="container-fluid">
+            <h1 class="m-0 text-info"><i class="fas fa-calendar-edit"></i> Modificar Cita Médica</h1>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">Actualizar Información de la Agenda</h3>
+                </div>
+                <form th:action="@{/citas/guardar}" th:object="${cita}" method="post">
+
+                    <input type="hidden" th:field="*{idCita}">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Paciente</label>
+                            <select class="form-control" th:field="*{paciente}" required>
+                                <option th:each="p : ${pacientes}"
+                                        th:value="${p.idPaciente}"
+                                        th:text="${p.nombreCompleto}"
+                                        th:selected="${p.idPaciente == cita.paciente.idPaciente}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fecha</label>
+                                    <input type="date" class="form-control" th:field="*{fecha}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Hora</label>
+                                    <input type="time" class="form-control" th:field="*{hora}" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Especialidad</label>
+                            <input type="text" class="form-control" th:field="*{especialidad}" required>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Actualizar Cita</button>
+                        <a th:href="@{/citas}" class="btn btn-default float-right">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head('Estadísticas - Doña Toti')}"></head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <nav th:replace="~{layout/layout :: navbar}"></nav>
+    <aside th:replace="~{layout/layout :: sidebar}"></aside>
+
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 font-weight-bold text-dark">Estadísticas de la Tienda</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-6" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'ADMIN'}">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3 th:text="${totalProductos}"></h3>
+                                <p>Artículos en Inventario</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <a th:href="@{/productos}" class="small-box-footer">Gestionar Inventario <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-6">
+                        <div class="small-box bg-success" style="background-color: #006847 !important;">
+                            <div class="inner">
+                                <h3 th:text="${totalVentas}"></h3>
+                                <p>Ventas Realizadas</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <a th:href="@{/ventas/punto-venta}" class="small-box-footer">Ir a cobrar <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-primary card-outline" style="border-top-color: #006847;">
+                            <div class="card-header">
+                                <h3 class="card-title">Nivel de Inventario</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="stockChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card card-primary card-outline" style="border-top-color: #006847;">
+                            <div class="card-header">
+                                <h3 class="card-title">Historial de Ingresos</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="ventasChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{layout/layout :: scripts}"></div>
+
+<script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var nombresProd = /*[[${nombresProductos}]]*/ [];
+        var stockProd = /*[[${stockProductos}]]*/ [];
+
+        var fechasVen = /*[[${fechasVentas}]]*/ [];
+        var totalesVen = /*[[${totalesVentas}]]*/ [];
+
+        var ctxStock = document.getElementById('stockChart').getContext('2d');
+        new Chart(ctxStock, {
+            type: 'bar',
+            data: {
+                labels: nombresProd,
+                datasets: [{
+                    label: 'Piezas en Stock',
+                    data: stockProd,
+                    backgroundColor: '#006847'
+                }]
+            }
+        });
+
+        var ctxVentas = document.getElementById('ventasChart').getContext('2d');
+        new Chart(ctxVentas, {
+            type: 'line',
+            data: {
+                labels: fechasVen,
+                datasets: [{
+                    label: 'Total de Venta ($)',
+                    data: totalesVen,
+                    borderColor: '#006847',
+                    fill: false,
+                    tension: 0.1
+                }]
+            }
+        });
+    });
+</script>
+</body>
+</html>

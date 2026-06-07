@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            color: #333;
+        }
+        h2 {
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #resultadoTexto {
+            margin: 30px 0;
+            font-size: 16px;
+        }
+        .botones button {
+            padding: 8px 16px;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #999;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #000;
+        }
+        .botones button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Calculadora Basica</h2>
+
+<div class="form-group">
+    <label>Numero 1:</label>
+    <input type="number" id="num1">
+</div>
+
+<div class="form-group">
+    <label>Numero 2</label>
+    <input type="number" id="num2">
+</div>
+
+<div id="resultadoTexto">Resultado: 0</div>
+
+<div class="botones">
+    <button onclick="calcular('suma')">Suma</button>
+    <button onclick="calcular('resta')">Resta</button>
+    <button onclick="calcular('multiplicacion')">Multiplicacion</button>
+    <button onclick="calcular('division')">Division</button>
+</div>
+
+<script>
+    function calcular(operacion) {
+        // Jalamos los valores de los inputs y los convertimos a números
+        let numero1 = parseFloat(document.getElementById('num1').value);
+        let numero2 = parseFloat(document.getElementById('num2').value);
+        let resultado = 0;
+
+        // Validación por si le dan clic sin poner números
+        if (isNaN(numero1) || isNaN(numero2)) {
+            document.getElementById('resultadoTexto').innerText = "Por favor, ingresa ambos números.";
+            return;
+        }
+
+        // Hacemos la operación dependiendo del botón que presionó
+        switch (operacion) {
+            case 'suma':
+                resultado = numero1 + numero2;
+                break;
+            case 'resta':
+                resultado = numero1 - numero2;
+                break;
+            case 'multiplicacion':
+                resultado = numero1 * numero2;
+                break;
+            case 'division':
+                // Prevenimos dividir entre cero
+                if (numero2 === 0) {
+                    document.getElementById('resultadoTexto').innerText = "Resultado: No se puede dividir entre 0";
+                    return;
+                }
+                resultado = numero1 / numero2;
+                break;
+        }
+
+        // Mandamos el resultado a la pantalla
+        document.getElementById('resultadoTexto').innerText = "Resultado: " + resultado;
+    }
+</script>
+
+</body>
+</html>

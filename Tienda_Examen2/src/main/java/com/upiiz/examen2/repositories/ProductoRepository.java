@@ -1,0 +1,9 @@
+package com.upiiz.examen2.repositories;
+
+import com.upiiz.examen2.entities.Producto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProductoRepository extends JpaRepository<Producto, Long> {
+}
