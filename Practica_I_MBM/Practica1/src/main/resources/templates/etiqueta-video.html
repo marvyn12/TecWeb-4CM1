@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta <p> - Catálogo HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f5;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-top: 6px solid #6b1524;
+            padding: 35px;
+        }
+        h1 {
+            color: #6b1524;
+            border-bottom: 2px solid #f4f4f5;
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: left;
+        }
+        h2, h3 {
+            color: #27272a;
+            margin-bottom: 10px;
+        }
+        .categoria, .seccion {
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #fafafa;
+            border-left: 4px solid #6b1524;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #3f3f46;
+            font-size: 14px;
+        }
+        .ejemplo-real {
+            border: 1px solid #d4d4d8;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .navegacion, .enlaces {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn, .enlaces a {
+            text-decoration: none;
+            background-color: #f4f4f5;
+            color: #3f3f46;
+            padding: 8px 16px;
+            border: 1px solid #d4d4d8;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn:hover, .enlaces a:hover {
+            background-color: #6b1524;
+            color: #ffffff;
+            border-color: #6b1524;
+        }
+        .btn-inicio {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Etiqueta <code>&lt;video&gt;</code></h1>
+
+    <div class="seccion">
+        <h3>Descripción y significado</h3>
+        <p>La etiqueta <strong>&lt;video&gt;</strong> incrusta un reproductor de video directamente en tu página web.</p>
+        <ul>
+            <li><strong>Sintaxis:</strong> Apertura <code>&lt;video&gt;</code> y cierre <code>&lt;/video&gt;</code>.</li>
+            <li><strong>Atributos comunes:</strong> <code>controls</code>, <code>width</code>, y <code>poster</code> (una imagen miniatura que se muestra antes de darle play).</li>
+        </ul>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo de código</h3>
+        <pre><code>&lt;video width="100%" controls&gt;
+    &lt;source src="/mapache.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo renderizado</h3>
+        <div class="ejemplo-real" style="text-align: center;">
+
+            <video controls style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                <source th:src="@{/mapache.mp4}" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+
+        </div>
+    </div>
+
+    <div class="navegacion">
+        <a href="/etiqueta-audio" class="btn">&laquo; Anterior</a>
+        <a href="/" class="btn btn-inicio">Menú Principal</a>
+        <a href="/etiqueta-header" class="btn">Siguiente &raquo;</a>
+    </div>
+</div>
+
+</body>
+</html>

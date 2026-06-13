@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta HTML - Catálogo HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f5;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-top: 6px solid #6b1524;
+            padding: 35px;
+        }
+        h1 {
+            color: #6b1524;
+            border-bottom: 2px solid #f4f4f5;
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: left;
+        }
+        h2, h3 {
+            color: #27272a;
+            margin-bottom: 10px;
+        }
+        .categoria, .seccion {
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #fafafa;
+            border-left: 4px solid #6b1524;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #3f3f46;
+            font-size: 14px;
+        }
+        .ejemplo-real {
+            border: 1px solid #d4d4d8;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .navegacion, .enlaces {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn, .enlaces a {
+            text-decoration: none;
+            background-color: #f4f4f5;
+            color: #3f3f46;
+            padding: 8px 16px;
+            border: 1px solid #d4d4d8;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn:hover, .enlaces a:hover {
+            background-color: #6b1524;
+            color: #ffffff;
+            border-color: #6b1524;
+        }
+        .btn-inicio {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Etiqueta <code>&lt;body&gt;</code></h1>
+
+    <div class="seccion">
+        <h3>Descripción y significado</h3>
+        <p>La etiqueta <strong>&lt;body&gt;</strong> representa el contenido principal de un documento HTML. Todo lo que el usuario ve y con lo que interactúa en la pantalla (textos, imágenes, enlaces, botones) debe ir obligatoriamente aquí adentro.</p>
+
+        <ul>
+            <li><strong>Sintaxis:</strong> Va justo después de cerrar el <code>&lt;/head&gt;</code>. Solo puede haber un body por documento.</li>
+            <li><strong>Atributos comunes:</strong> Anteriormente se usaban atributos para color de fondo, pero hoy en día todo eso se maneja con <code>class</code>, <code>id</code> y CSS.</li>
+        </ul>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo de código</h3>
+        <pre><code>&lt;body&gt;
+    &lt;h1&gt;Bienvenido a mi web&lt;/h1&gt;
+    &lt;p&gt;Todo este texto sí es visible para el usuario.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+    </div>
+
+    <div class="seccion">
+        <h3>Ejemplo renderizado</h3>
+        <div class="ejemplo-real">
+            <h1>Bienvenido a mi web</h1>
+            <p>Todo este texto sí es visible para el usuario.</p>
+        </div>
+    </div>
+
+    <div class="navegacion">
+        <a href="/etiqueta-head" class="btn">&laquo; Anterior</a>
+        <a href="/" class="btn btn-inicio">Menú Principal</a>
+        <a href="/etiqueta-p" class="btn">Siguiente &raquo;</a>
+    </div>
+
+</body>
+</html>

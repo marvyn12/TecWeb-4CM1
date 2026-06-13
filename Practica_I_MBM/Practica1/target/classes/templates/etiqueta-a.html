@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiqueta <p> - Catálogo HTML</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f5;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e4e4e7;
+            border-top: 6px solid #6b1524;
+            padding: 35px;
+        }
+        h1 {
+            color: #6b1524;
+            border-bottom: 2px solid #f4f4f5;
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: left;
+        }
+        h2, h3 {
+            color: #27272a;
+            margin-bottom: 10px;
+        }
+        .categoria, .seccion {
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #fafafa;
+            border-left: 4px solid #6b1524;
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #3f3f46;
+            font-size: 14px;
+        }
+        .ejemplo-real {
+            border: 1px solid #d4d4d8;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .navegacion, .enlaces {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn, .enlaces a {
+            text-decoration: none;
+            background-color: #f4f4f5;
+            color: #3f3f46;
+            padding: 8px 16px;
+            border: 1px solid #d4d4d8;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn:hover, .enlaces a:hover {
+            background-color: #6b1524;
+            color: #ffffff;
+            border-color: #6b1524;
+        }
+        .btn-inicio {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="contenedor">
+        <h1>Etiqueta <code>&lt;a&gt;</code></h1>
+
+        <div class="seccion">
+            <h3>Descripción y significado</h3>
+            <p>La etiqueta <strong>&lt;a&gt;</strong> (del inglés <em>anchor</em> o ancla) se utiliza para crear enlaces o hipervínculos. Es la esencia de la web, ya que permite navegar de una página a otra, descargar archivos o saltar a diferentes partes de un mismo documento.</p>
+
+            <ul>
+                <li><strong>Sintaxis:</strong> Apertura <code>&lt;a&gt;</code> y cierre <code>&lt;/a&gt;</code>. El texto que el usuario puede clickear va en medio.</li>
+                <li><strong>Atributos comunes:</strong> <code>href</code> es obligatorio (indica la ruta o URL destino). <code>target="_blank"</code> se usa mucho para que el enlace se abra en una pestaña nueva.</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h3>Ejemplo de código</h3>
+            <pre><code>&lt;p&gt;
+    Puedes buscar más información en
+    &lt;a href="https://www.google.com" target="_blank"&gt;Google&lt;/a&gt;.
+&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="seccion">
+            <h3>Ejemplo renderizado</h3>
+            <div class="ejemplo-real">
+                <p>Puedes buscar más información en <a href="https://www.google.com" target="_blank">Google</a>.</p>
+            </div>
+        </div>
+
+        <div class="navegacion">
+            <a href="/etiqueta-em" class="btn">&laquo; Anterior</a>
+            <a href="/" class="btn btn-inicio">Menú Principal</a>
+            <a href="/etiqueta-img" class="btn">Siguiente &raquo;</a>
+        </div>
+    </div>
+
+</body>
+</html>

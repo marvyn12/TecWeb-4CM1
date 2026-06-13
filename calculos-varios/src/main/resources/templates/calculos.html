@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculos Varios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5" style="max-width: 600px;">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-white">
+            <h4 class="mb-0">Cálculos varios</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="mb-4">
+                <input type="number" id="numero" class="form-control" placeholder="Ingrese un número" min="0">
+            </div>
+
+            <div class="mb-4">
+                <select id="operacion" class="form-select w-50" onchange="actualizarBoton()">
+                    <option value="primo">Es primo</option>
+                    <option value="par">Es par</option>
+                    <option value="factorial">Factorial</option>
+                    <option value="suma_pares">Suma pares</option>
+                    <option value="suma_impares">Suma impares</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <h5 id="resultado" class="fw-bold">Resultado: </h5>
+            </div>
+
+            <div>
+                <button id="btnAccion" class="btn btn-secondary" onclick="ejecutar()">Verificar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function actualizarBoton() {
+        const operacion = document.getElementById("operacion").value;
+        const boton = document.getElementById("btnAccion");
+
+        if (operacion === "primo" || operacion === "par") {
+            boton.innerText = "Verificar";
+        } else {
+            boton.innerText = "Calcular";
+        }
+    }
+
+    function ejecutar() {
+        const num = parseInt(document.getElementById("numero").value);
+        const operacion = document.getElementById("operacion").value;
+        const resultadoDiv = document.getElementById("resultado");
+
+        if (isNaN(num) || num < 0) {
+            resultadoDiv.innerText = "Resultado: Ingrese un número válido mayor o igual a 0.";
+            return;
+        }
+
+        let res = "";
+
+        switch (operacion) {
+            case "primo":
+                let esPrimo = true;
+                if (num <= 1) esPrimo = false;
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        esPrimo = false;
+                        break;
+                    }
+                }
+                res = esPrimo ? "Es primo" : "No es primo";
+                break;
+
+            case "par":
+                res = (num % 2 === 0) ? "Es par" : "No es par (Es impar)";
+                break;
+
+            case "factorial":
+                let fact = 1;
+                for (let i = 1; i <= num; i++) {
+                    fact *= i;
+                }
+                res = fact;
+                break;
+
+            case "suma_pares":
+                let sumaP = 0;
+                for (let i = 1; i <= num; i++) {
+                    if (i % 2 === 0) sumaP += i;
+                }
+                res = sumaP;
+                break;
+
+            case "suma_impares":
+                let sumaI = 0;
+                for (let i = 1; i <= num; i++) {
+                    if (i % 2 !== 0) sumaI += i;
+                }
+                res = sumaI;
+                break;
+        }
+
+        resultadoDiv.innerText = "Resultado: " + res;
+    }
+</script>
+
+</body>
+</html>

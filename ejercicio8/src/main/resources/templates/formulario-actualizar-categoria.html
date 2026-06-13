@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        h2 { color: #6B192A; border-bottom: 2px solid #6B192A; padding-bottom: 10px; }
+        a { text-decoration: none; color: #6B192A; font-weight: bold; }
+        form { background: white; padding: 20px; border-radius: 5px; max-width: 400px; margin-top: 20px; }
+        input { padding: 8px; margin-bottom: 15px; width: 100%; box-sizing: border-box; }
+        button { padding: 10px 15px; background-color: #6B192A; color: white; border: none; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+<h2>Actualizar Categoría</h2>
+<a th:href="@{/categorias}">Regresar</a>
+<form th:action="@{/categorias/guardar-actualizacion}" th:object="${categoria}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <label>Nombre:</label> <input type="text" th:field="*{nombre}" required>
+    <button type="submit">Actualizar</button>
+</form>
+</body>
+</html>

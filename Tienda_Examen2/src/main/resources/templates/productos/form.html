@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head('Formulario de Producto')}"></head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <nav th:replace="~{layout/layout :: navbar}"></nav>
+    <aside th:replace="~{layout/layout :: sidebar}"></aside>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 th:text="${producto.id == null} ? 'Nuevo Producto' : 'Editar Producto'"></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="card card-primary">
+                <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+                    <input type="hidden" th:field="*{id}">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Código de Barras</label>
+                            <input type="text" th:field="*{codigoBarras}" class="form-control" placeholder="Ej. 750123456" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre del Producto</label>
+                            <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ej. Coca Cola 600ml" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea th:field="*{descripcion}" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Precio</label>
+                                    <input type="number" step="0.01" th:field="*{precio}" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Existencia (Stock)</label>
+                                    <input type="number" th:field="*{stock}" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Guardar Producto</button>
+                        <a th:href="@{/productos}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<div th:replace="~{layout/layout :: scripts}"></div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Multimedia</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Videos</h2>
+<hr>
+
+<p>Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Use la etiqueta &lt;source&gt;.</p>
+<video width="320" height="190" controls>
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Use la etiqueta &lt;source&gt;.</p>
+<video width="320" height="190" controls>
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Que se reproduzca automáticamente. Use la etiqueta &lt;source&gt;.</p>
+<video width="320" height="190" controls autoplay muted>
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Que se repita indefinidamente. Use la etiqueta &lt;source&gt;.</p>
+<video width="320" height="190" controls loop>
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 600 pixeles y un alto de 350 pixeles. Que muestre los controles. Use la etiqueta &lt;source&gt;.</p>
+<video width="600" height="350" controls>
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Que se reproduzca en silencio. Use la etiqueta &lt;source&gt;.</p>
+<video width="320" height="190" controls muted>
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Que se muestre un poster hasta que se reproduzca. Use la etiqueta &lt;source&gt;.</p>
+<video width="320" height="190" controls poster="../../../../galeria/posterimage.png">
+    <source src="../../../../galeria/videohtml.mp4" type="video/mp4">
+</video>
+
+<hr>
+
+<p>Video que se pueda reproducir con el formato mp4 o bien ogg. Video con un ancho de 320 pixeles y un alto de 190 pixeles. Que muestre los controles. Que se muestre un poster hasta que se reproduzca. Use el atributo src.</p>
+<video width="320" height="190" controls poster="../../../../galeria/posterimage.png" src="../../../../galeria/videohtml.mp4">
+</video>
+
+<br>
+
+<h2>Audio</h2>
+<hr>
+
+<p>Audio que muestre los controles. Use la etiqueta &lt;source&gt;.</p>
+<audio controls>
+    <source src="../../../../galeria/audio_ejemplo.mp3" type="audio/mpeg">
+</audio>
+
+<hr>
+
+<p>Audio que muestre los controles. Que tengan un audio tipo .ogg y otro mp3. Use la etiqueta &lt;source&gt;.</p>
+<audio controls>
+    <source src="../../../../galeria/audio_ejemplo.ogg" type="audio/ogg">
+    <source src="../../../../galeria/audio_ejemplo.mp3" type="audio/mpeg">
+</audio>
+
+<hr>
+
+<p>Audio que muestre los controles. Que se reproduzca automáticamente. Use la etiqueta &lt;source&gt;.</p>
+<audio controls autoplay>
+    <source src="../../../../galeria/audio_ejemplo.mp3" type="audio/mpeg">
+</audio>
+
+<hr>
+
+<p>Audio que muestre los controles. Que se reproduzca indefinidamente. Use la etiqueta &lt;source&gt;.</p>
+<audio controls loop>
+    <source src="../../../../galeria/audio_ejemplo.mp3" type="audio/mpeg">
+</audio>
+
+<hr>
+
+<p>Audio que muestre los controles. Que se reproduzca en silencio. Use la etiqueta &lt;source&gt;.</p>
+<audio controls muted>
+    <source src="../../../../galeria/audio_ejemplo.mp3" type="audio/mpeg">
+</audio>
+
+<hr>
+
+<p>Audio que muestre los controles. Que muestre los controles. Use el atributo src.</p>
+<audio controls src="../../../../galeria/audio_ejemplo.mp3">
+</audio>
+
+<br>
+
+<h2>Imágenes</h2>
+<hr>
+
+<p>1. Mostrar una imagen de la upiiz con un ancho de 500 pixeles y un alto de 500 pixeles. Que tenga como título “Escudo de la UPIIZ”. Si por alguna razón no se puede mostrar la imagen que se pueda visualizar “Logo de la UPIIZ”.</p>
+<img src="../../../../galeria/upiiz_logo.png" width="500" height="500" title="Escudo de la UPIIZ" alt="Logo de la UPIIZ">
+
+<p>Agregue el siguiente texto en la parte inferior de la imagen:</p>
+<p>"ENGRANE DE PLATA representa las ingenierías. LA RAMA VERDE hace mención de como
+    la UPIIZ tiene la ferviente convicción de que las ingenierías siempre estarán en la búsqueda
+    continua del bienestar ambiental a la par de lo social y económico para una mejor calidad de vida.
+    LAS ESPIGAS DORADAS simbolizan la abundancia en los conocimientos que se tienen en estas
+    ingenierías, la búsqueda del aprovechamiento de las materias primas alimenticias, la seguridad e
+    innocuidad de las mismas. LA CADENA DE BITS en código binario, propio de un sistema de
+    cómputo, aparece codificando la fecha de creación de esta Unidad Académica, el 01 de octubre de
+    2009 (01/10/09)."</p>
+
+<hr>
+
+<p>2. Agregue una imagen del escudo del IPN que ocupe el 50% del documento html</p>
+<img src="../../../../galeria/ipn_logo.png" style="width: 50%; height: auto;" alt="Escudo del IPN">
+
+<br>
+
+
+
+
+
+
+
+</body>
+</html>

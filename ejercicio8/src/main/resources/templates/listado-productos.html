@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        h2 { color: #6B192A; border-bottom: 2px solid #6B192A; padding-bottom: 10px; }
+        a { text-decoration: none; color: #6B192A; font-weight: bold; }
+        a:hover { color: #4a101d; text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; max-width: 800px; margin-top: 20px; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #6B192A; color: white; }
+    </style>
+</head>
+<body>
+<h2>Productos</h2>
+<a th:href="@{/}">Regresar</a> | <a th:href="@{/productos/agregar}">Agregar Producto</a>
+<table>
+    <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Acciones</th></tr>
+    <tr th:each="prod : ${productos}">
+        <td th:text="${prod.id}"></td>
+        <td th:text="${prod.nombre}"></td>
+        <td th:text="'$ ' + ${prod.precio}"></td>
+        <td th:text="${prod.categoria}"></td>
+        <td>
+            <a th:href="@{/productos/actualizar/{id}(id=${prod.id})}">Actualizar</a> |
+            <a th:href="@{/productos/eliminar/{id}(id=${prod.id})}" style="color: #dc3545;">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/layout :: plantilla(~{::#contenido_create_cita})}">
+<head>
+    <title>Agendar Cita</title>
+</head>
+<body>
+
+<div id="contenido_create_cita">
+    <div class="content-header">
+        <div class="container-fluid">
+            <h1 class="m-0 text-info"><i class="fas fa-calendar-plus"></i> Agendar Nueva Cita</h1>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">Detalles de la Cita</h3>
+                </div>
+                <form th:action="@{/citas/guardar}" th:object="${cita}" method="post">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label>Paciente</label>
+                            <select class="form-control" th:field="*{paciente}" required>
+                                <option value="">-- Seleccione un Paciente --</option>
+                                <option th:each="p : ${pacientes}" th:value="${p.idPaciente}" th:text="${p.nombreCompleto}"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" class="form-control" th:field="*{fecha}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hora</label>
+                            <input type="time" class="form-control" th:field="*{hora}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Especialidad</label>
+                            <input type="text" class="form-control" th:field="*{especialidad}" required placeholder="Ej. Odontología, Pediatría...">
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Guardar Cita</button>
+                        <a th:href="@{/citas}" class="btn btn-default float-right">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/layout :: plantilla(~{::#contenido_dashboard})}">
+<head>
+    <title>Panel de Control</title>
+</head>
+<body>
+<div id="contenido_dashboard">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark"><i class="fas fa-tachometer-alt text-info"></i> Panel de Control</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3 th:text="${totalPacientes}">0</h3>
+                            <p>Pacientes Registrados</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <a th:href="@{/pacientes}" class="small-box-footer">Ir a pacientes <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-primary">
+                        <div class="inner">
+                            <h3 th:text="${totalCitas}">0</h3>
+                            <p>Citas Totales</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <a th:href="@{/citas}" class="small-box-footer">Ir a citas <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-lightblue">
+                        <div class="inner">
+                            <h3 th:text="${citasHoy}">0</h3>
+                            <p>Citas para Hoy</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <a th:href="@{/citas}" class="small-box-footer">Ver agenda <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-navy">
+                        <div class="inner">
+                            <h3 th:text="${especialidades}">0</h3>
+                            <p>Especialidades</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card card-outline card-info">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-chart-pie"></i> Distribución de Citas por Especialidad</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="min-height: 300px; height: 300px; max-height: 300px; width: 100%;">
+                                <canvas id="miGrafica"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script th:inline="javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            // Recibimos los datos agrupados desde Java
+            var etiquetas = [[${labelsGrafica}]];
+            var cantidades = [[${datosGrafica}]];
+
+            var ctx = document.getElementById('miGrafica').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'doughnut', // Gráfica de dona
+                data: {
+                    labels: etiquetas,
+                    datasets: [{
+                        data: cantidades,
+                        backgroundColor: [
+                            'rgba(23, 162, 184, 0.8)', // Info
+                            'rgba(0, 123, 255, 0.8)',  // Primary
+                            'rgba(40, 167, 69, 0.8)',  // Success
+                            'rgba(255, 193, 7, 0.8)',  // Warning
+                            'rgba(220, 53, 69, 0.8)',  // Danger
+                            'rgba(102, 16, 242, 0.8)'  // Indigo
+                        ],
+                        borderWidth: 2,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                padding: 20,
+                                font: { size: 14 }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

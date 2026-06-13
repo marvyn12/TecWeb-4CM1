@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Materia</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #6B192A; border-bottom: 2px solid #6B192A; padding-bottom: 10px; }
+        .btn { display: inline-block; padding: 10px 15px; text-decoration: none; border-radius: 5px; color: white; border: none; cursor: pointer; font-weight: bold; margin-right: 10px; }
+        .btn-primary { background-color: #6B192A; }
+        .btn-primary:hover { background-color: #4a101d; }
+        .btn-secondary { background-color: #6c757d; }
+        .btn-secondary:hover { background-color: #5a6268; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Registrar Nueva Materia</h2>
+
+    <form th:action="@{/materias/guardar}" th:object="${materia}" method="post">
+        <div class="form-group">
+            <label>Nombre de la Materia:</label>
+            <input type="text" th:field="*{nombre}" required />
+        </div>
+        <div class="form-group">
+            <label>Créditos:</label>
+            <input type="number" th:field="*{creditos}" required min="1" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Materia</button>
+        <a th:href="@{/materias}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Jugadores - Champions</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px; }
+        /* Azul Champions League */
+        h2 { color: #003366; border-bottom: 2px solid #003366; padding-bottom: 10px; }
+        a { text-decoration: none; color: #0055a4; font-weight: bold; }
+        a:hover { color: #001933; text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; max-width: 800px; margin-top: 20px; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #003366; color: white; } /* Cabecera azul oscura */
+    </style>
+</head>
+<body>
+<h2>Jugadores</h2>
+<a th:href="@{/}">Regresar</a> &nbsp;&nbsp; <a th:href="@{/jugadores/agregar}">Agregar Jugador</a>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Posición</th>
+        <th>Número</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="jug : ${jugadores}">
+        <td th:text="${jug.id}"></td>
+        <td th:text="${jug.nombre}"></td>
+        <td th:text="${jug.posicion}"></td>
+        <td th:text="${jug.numero}"></td>
+        <td>
+            <a th:href="@{/jugadores/actualizar/{id}(id=${jug.id})}">Actualizar</a> &nbsp;
+            <a th:href="@{/jugadores/eliminar/{id}(id=${jug.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
